@@ -5,10 +5,10 @@ export default function App() {
   return (
     <ImageBackground
       source={require("./src/imagem/27calor.jpg")}
-      style={{ width: "100%", height: "72%", resizeMode: "cover" }}
+      style={styles.container}
     >
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+      <View>
+        <Text>Openg on your app!</Text>
         <StatusBar style="auto" />
       </View>
     </ImageBackground>
