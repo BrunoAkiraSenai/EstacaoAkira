@@ -12,9 +12,9 @@ import { StatusBar } from "expo-status-bar";
 // Import Styles!
 import { stylesSign } from "../styles/StylesSign";
 
-import { StylesOnboarding } from "../styles/StylesOnboarding";
-
 import { useNavigation } from "@react-navigation/native";
+
+import { StylesOnboarding } from "../styles/StylesOnboarding";
 
 // Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -25,7 +25,7 @@ export default function SignUp() {
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../images/27calor.jpg")}
+      source={require("../images/agro.jpg")}
       blurRadius={15}
     >
       <View
@@ -60,13 +60,14 @@ export default function SignUp() {
 
         <TouchableOpacity
           style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
+          onPress={() => navigation.navigate("SignIn")}
         >
           <Text style={StylesOnboarding.txt2}>Sign Up</Text>
         </TouchableOpacity>
 
         <View style={StylesOnboarding.viewSignUp}>
           <Text style={StylesOnboarding.txt2}>Already have an account?</Text>
-          <Pressable onPress={() => navigation.navigate("SignUp")}>
+          <Pressable onPress={() => navigation.navigate("SignIn")}>
             <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
           </Pressable>
         </View>
