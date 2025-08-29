@@ -46,7 +46,11 @@ export default function Onboarding() {
       <View style={StylesOnboarding.viewSignUp}>
         <Text style={StylesOnboarding.txt2}>Don't have an account?</Text>
         <Pressable onPress={() => navigation.navigate("SignUp")}>
-          <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign Up</Text>
+          <Text
+            style={{ fontWeight: "bold", color: "#fff", fontStyle: "italic" }}
+          >
+            Sign Up
+          </Text>
         </Pressable>
       </View>
 
