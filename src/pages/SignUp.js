@@ -14,15 +14,18 @@ import { stylesSign } from "../styles/StylesSign";
 
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 
+import { useNavigation } from "@react-navigation/native";
+
 // Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import InputComp from "../components/InputComp";
 
 export default function SignUp() {
+  const navigation = useNavigation();
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../assets/images/fundo.jpg")}
+      source={require("../images/27calor.jpg")}
       blurRadius={15}
     >
       <View

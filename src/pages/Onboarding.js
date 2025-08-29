@@ -22,7 +22,7 @@ export default function Onboarding() {
   return (
     <ImageBackground
       style={StylesOnboarding.container}
-      source={require("../assets/images/fundo.jpg")}
+      source={require("../images/27calor.jpg")}
       blurRadius={5}
     >
       <MaterialCommunityIcons
