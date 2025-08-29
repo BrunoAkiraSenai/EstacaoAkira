@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   ImageBackground,
   Text,
@@ -7,33 +6,26 @@ import {
   Pressable,
   TextInput,
 } from "react-native";
-=======
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import Onboarding from "./src/pages/Onboarding";
-import SignUp from "./src/pages/SignUp";
-import SignIn from "./src/pages/SignIn";
-
-const Stack = createNativeStackNavigator();
->>>>>>> master
 
 import { StatusBar } from "expo-status-bar";
 
 // Import Styles!
+import { stylesSign } from "../styles/StylesSign";
 
+import { StylesOnboarding } from "../styles/StylesOnboarding";
+
+import { useNavigation } from "@react-navigation/native";
 
 // Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-
-import { useNavigation } from "@react-navigation/native";
+import InputComp from "../components/InputComp";
 
 export default function SignUp() {
   const navigation = useNavigation();
   return (
-<<<<<<< HEAD
     <ImageBackground
-      source={require("./src/images/download.jpg")}
+      style={stylesSign.container}
+      source={require("../images/27calor.jpg")}
       blurRadius={15}
     >
       <View
@@ -46,33 +38,34 @@ export default function SignUp() {
         }}
       >
         <MaterialCommunityIcons
-          name="weather-cloudy"
+          name="flower-tulip-outline"
           size={50}
           color="white"
           style={{ marginBottom: 20 }}
         />
-        <Text >
-          Cadastre-se na Estação Akira!
+        <Text style={stylesSign.title}>Sign Up</Text>
+        <Text style={stylesSign.text}>
+          Sign up now for free and start meditating, and explore Medic.
         </Text>
 
         <View style={{ marginTop: 80 }}>
           <TextInput
+            style={stylesSign.input}
             placeholderTextColor={"#bebebe"}
             placeholder="Name"
           />
-          <InputComp textPlaceholder={"digite seu email"} password={false} />
+          <InputComp textPlaceholder={"Email Address"} password={false} />
           <InputComp textPlaceholder={"Password"} password={true} />
-          <InputComp textPlaceholder={"Nome do usuário"} password={false} />
-
         </View>
 
         <TouchableOpacity
+          style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
         >
-          <Text >Sign Up</Text>
+          <Text style={StylesOnboarding.txt2}>Sign Up</Text>
         </TouchableOpacity>
 
         <View style={StylesOnboarding.viewSignUp}>
-          <Text >Já tem conta?</Text>
+          <Text style={StylesOnboarding.txt2}>Already have an account?</Text>
           <Pressable onPress={() => navigation.navigate("SignUp")}>
             <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
           </Pressable>
@@ -80,17 +73,5 @@ export default function SignUp() {
       </View>
       <StatusBar hidden />
     </ImageBackground>
-=======
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Onboarding"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-      </Stack.Navigator>
-    </NavigationContainer>
->>>>>>> master
   );
 }
