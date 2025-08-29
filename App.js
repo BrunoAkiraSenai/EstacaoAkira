@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import {
-  ImageBackground,
-  Text,
-  View,
-  TouchableOpacity,
-  Pressable,
-  TextInput,
-} from "react-native";
-=======
+
 import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Onboarding from "./src/pages/Onboarding";
@@ -16,71 +8,13 @@ import SignUp from "./src/pages/SignUp";
 import SignIn from "./src/pages/SignIn";
 
 const Stack = createNativeStackNavigator();
->>>>>>> master
-
-import { StatusBar } from "expo-status-bar";
-
-// Import Styles!
 
 
-// Import Icon!
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-import { useNavigation } from "@react-navigation/native";
-
-export default function SignUp() {
-  const navigation = useNavigation();
+export default function App() {
+  0
   return (
-<<<<<<< HEAD
-    <ImageBackground
-      source={require("./src/images/download.jpg")}
-      blurRadius={15}
-    >
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#00000088",
-          padding: 40,
-          justifyContent: "center",
-        }}
-      >
-        <MaterialCommunityIcons
-          name="weather-cloudy"
-          size={50}
-          color="white"
-          style={{ marginBottom: 20 }}
-        />
-        <Text >
-          Cadastre-se na Estação Akira!
-        </Text>
 
-        <View style={{ marginTop: 80 }}>
-          <TextInput
-            placeholderTextColor={"#bebebe"}
-            placeholder="Name"
-          />
-          <InputComp textPlaceholder={"digite seu email"} password={false} />
-          <InputComp textPlaceholder={"Password"} password={true} />
-          <InputComp textPlaceholder={"Nome do usuário"} password={false} />
-
-        </View>
-
-        <TouchableOpacity
-        >
-          <Text >Sign Up</Text>
-        </TouchableOpacity>
-
-        <View style={StylesOnboarding.viewSignUp}>
-          <Text >Já tem conta?</Text>
-          <Pressable onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
-          </Pressable>
-        </View>
-      </View>
-      <StatusBar hidden />
-    </ImageBackground>
-=======
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Onboarding"
@@ -91,6 +25,5 @@ export default function SignUp() {
         <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
     </NavigationContainer>
->>>>>>> master
   );
 }

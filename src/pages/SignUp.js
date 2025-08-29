@@ -25,7 +25,7 @@ export default function SignUp() {
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../images/27calor.jpg")}
+      source={require("../images/trator.jpg")}
       blurRadius={15}
     >
       <View
@@ -38,23 +38,24 @@ export default function SignUp() {
         }}
       >
         <MaterialCommunityIcons
-          name="flower-tulip-outline"
+          name="barley"
           size={50}
           color="white"
           style={{ marginBottom: 20 }}
         />
-        <Text style={stylesSign.title}>Sign Up</Text>
+        <Text style={stylesSign.title}>CADASTRO</Text>
         <Text style={stylesSign.text}>
-          Sign up now for free and start meditating, and explore Medic.
+          Cadastre-se na estação Akira para melhores informações!
         </Text>
 
         <View style={{ marginTop: 80 }}>
           <TextInput
-            style={stylesSign.input}
+            style={{ color: "#fff" }}
             placeholderTextColor={"#bebebe"}
             placeholder="Name"
           />
-          <InputComp textPlaceholder={"Email Address"} password={false} />
+          <InputComp textPlaceholder={"Email Address"} password={false}
+          />
           <InputComp textPlaceholder={"Password"} password={true} />
         </View>
 
