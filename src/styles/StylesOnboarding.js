@@ -1,3 +1,4 @@
+// styles/StylesOnboarding.js
 import { StyleSheet } from "react-native";
 
 export const StylesOnboarding = StyleSheet.create({
@@ -23,13 +24,22 @@ export const StylesOnboarding = StyleSheet.create({
   btn: {
     backgroundColor: "grey",
     width: "80%",
-    padding: 10,
+    padding: 12,
     alignItems: "center",
-    marginTop: 200,
-    borderRadius: 5,
+    justifyContent: "center",
+    marginTop: 20,
+    borderRadius: 8,
     shadowColor: "#000",
     shadowOpacity: 0.25,
-    elevation: 5,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 5, // sombra Android
+  },
+
+  btnText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 
   txt2: {
