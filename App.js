@@ -12,19 +12,17 @@ import { useState } from "react";
 const Stack = createNativeStackNavigator(); // adicionado
 
 export default function App() {
+  0
   return (
+
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{ headerShown: false }}
-        />
-        {/* <Stack.Screen
-          name="SignUp"
-          component={SignUp} // corrigido aqui
-          options={{ headerShown: false }}
-        /> */}
+      <Stack.Navigator
+        initialRouteName="Onboarding"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
     </NavigationContainer>
   );
