@@ -9,11 +9,13 @@ export const StylesOnboarding = StyleSheet.create({
   },
 
   title: {
-    color: "#000",
+    color: "#fff",
     fontSize: 40,
     fontWeight: "bold",
   },
-
+  txt: {
+    color: "#fff",
+  },
   viewSignUp: {
     justifyContent: "center",
     flexDirection: "row",

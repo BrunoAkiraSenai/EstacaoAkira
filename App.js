@@ -1,4 +1,6 @@
+
 import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Onboarding from "./src/pages/Onboarding";
@@ -7,8 +9,12 @@ import SignIn from "./src/pages/SignIn";
 
 const Stack = createNativeStackNavigator();
 
+
+
 export default function App() {
+  0
   return (
+
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Onboarding"
