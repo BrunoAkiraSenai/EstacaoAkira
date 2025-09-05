@@ -26,7 +26,7 @@ export default function SignIn() {
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../images/27calor.jpg")}
+      source={require("../images/agro.jpg")}
       blurRadius={15}
     >
       <View

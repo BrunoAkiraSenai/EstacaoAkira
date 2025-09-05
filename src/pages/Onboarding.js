@@ -22,31 +22,31 @@ export default function Onboarding() {
   return (
     <ImageBackground
       style={StylesOnboarding.container}
-      source={require("../images/27calor.jpg")}
+      source={require("../images/agro.jpg")}
       blurRadius={5}
     >
-      <MaterialCommunityIcons
-        name="flower-tulip-outline"
-        size={200}
-        color="white"
-      />
+      <MaterialCommunityIcons name="barley" size={200} color="white" />
 
-      <Text style={StylesOnboarding.title}>WELCOME</Text>
+      <Text style={StylesOnboarding.title}>Bem-Vindo</Text>
 
-      <Text style={StylesOnboarding.txt}>Do meditation. Stay focused.</Text>
-      <Text style={StylesOnboarding.txt}>Live a healthy life.</Text>
+      <Text style={StylesOnboarding.txt}>A agricultura é</Text>
+      <Text style={StylesOnboarding.txt}>a arte de saber esperar.</Text>
 
       <TouchableOpacity
         style={StylesOnboarding.btn}
         onPress={() => navigation.navigate("SignIn")}
       >
-        <Text style={StylesOnboarding.txt2}>Login With Email</Text>
+        <Text style={StylesOnboarding.txt2}>Login com Email</Text>
       </TouchableOpacity>
 
       <View style={StylesOnboarding.viewSignUp}>
-        <Text style={StylesOnboarding.txt2}>Don't have an account?</Text>
+        <Text style={StylesOnboarding.txt2}>Não tem cadastro?</Text>
         <Pressable onPress={() => navigation.navigate("SignUp")}>
-          <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign Up</Text>
+          <Text
+            style={{ fontWeight: "bold", color: "#fff", fontStyle: "italic" }}
+          >
+            Sign Up
+          </Text>
         </Pressable>
       </View>
 
