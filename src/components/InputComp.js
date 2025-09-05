@@ -1,6 +1,6 @@
 import { TextInput } from "react-native";
 
-import { stylesSign } from "../styles/stylesSign";
+import { stylesSign } from "../styles/StylesSign";
 
 export default function InputComp({ textPlaceholder, password }) {
   return (
