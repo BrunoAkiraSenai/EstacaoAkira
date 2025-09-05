@@ -1,15 +1,15 @@
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
-import { NavigationContainer } from "@react-navigation/native";
+import SignIn from "./src/pages/SingIn";
+// import SignUp from "./src/pages/SingUp";
 
+import { NavigationContainer } from "@react-navigation/native"; // corrigido aqui
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Onboarding from "./src/pages/Onboarding";
-import SignUp from "./src/pages/SignUp";
-import SignIn from "./src/pages/SignIn";
+import { useState } from "react";
 
-const Stack = createNativeStackNavigator();
-
-
+const Stack = createNativeStackNavigator(); // adicionado
 
 export default function App() {
   0
@@ -27,3 +27,12 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
