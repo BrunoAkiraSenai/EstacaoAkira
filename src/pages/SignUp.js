@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Pressable,
   TextInput,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
@@ -15,8 +15,6 @@ import { stylesSign } from "../styles/StylesSign";
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 
 import { useNavigation } from "@react-navigation/native";
-
-import { StylesOnboarding } from "../styles/StylesOnboarding";
 
 // Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -53,21 +51,21 @@ export default function SignUp() {
         <View style={{ marginTop: 80 }}>
           <TextInput
             style={styles.input}
-            placeholder='Nome'
-          // value={nome}
-          // onChangeText={setNome}
+            placeholder="Nome"
+            // value={nome}
+            // onChangeText={setNome}
           />
 
           <TextInput
             style={styles.input}
-            placeholder='Email'
-          // value={email}
-          // onChangeText={setEmail}
+            placeholder="Email"
+            // value={email}
+            // onChangeText={setEmail}
           />
 
           <TextInput
             style={styles.input}
-            placeholder='Senha'
+            placeholder="Senha"
             // value={senha}
             // onChangeText={setSenha}
             secureTextEntry
@@ -101,7 +99,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
-
-})
+});

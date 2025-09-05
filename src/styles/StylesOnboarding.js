@@ -15,6 +15,7 @@ export const StylesOnboarding = StyleSheet.create({
   },
   txt: {
     color: "#fff",
+    fontSize: 20,
   },
   viewSignUp: {
     justifyContent: "center",
