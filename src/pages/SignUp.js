@@ -5,12 +5,14 @@ import {
   TouchableOpacity,
   Pressable,
   TextInput,
+  StyleSheet
 } from "react-native";
-
 import { StatusBar } from "expo-status-bar";
 
 // Import Styles!
 import { stylesSign } from "../styles/StylesSign";
+
+
 
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 
@@ -49,10 +51,27 @@ export default function SignUp() {
         </Text>
 
         <View style={{ marginTop: 80 }}>
-          <InputComp textPlaceholder={"Name"} />
-          <InputComp textPlaceholder={"Email Address"} password={false}
+          <TextInput
+            style={styles.input}
+            placeholder='Nome'
+          // value={nome}
+          // onChangeText={setNome}
           />
-          <InputComp textPlaceholder={"Password"} password={true} />
+
+          <TextInput
+            style={styles.input}
+            placeholder='Email'
+          // value={email}
+          // onChangeText={setEmail}
+          />
+
+          <TextInput
+            style={styles.input}
+            placeholder='Senha'
+            // value={senha}
+            // onChangeText={setSenha}
+            secureTextEntry
+          />
         </View>
 
         <TouchableOpacity
@@ -72,3 +91,16 @@ export default function SignUp() {
     </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    height: 25,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    backgroundColor: "#fff"
+  },
+
+})
