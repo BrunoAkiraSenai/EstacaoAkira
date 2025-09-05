@@ -49,11 +49,7 @@ export default function SignUp() {
         </Text>
 
         <View style={{ marginTop: 80 }}>
-          <TextInput
-            style={{ color: "#fff" }}
-            placeholderTextColor={"#bebebe"}
-            placeholder="Name"
-          />
+          <InputComp textPlaceholder={"Name"} />
           <InputComp textPlaceholder={"Email Address"} password={false}
           />
           <InputComp textPlaceholder={"Password"} password={true} />
