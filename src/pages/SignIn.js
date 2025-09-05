@@ -1,77 +1,78 @@
+import React from "react";
 import {
-  ImageBackground,
-  Text,
   View,
+  Text,
+  StyleSheet,
+  ImageBackground,
   TouchableOpacity,
   Pressable,
 } from "react-native";
-
-import { StatusBar } from "expo-status-bar";
-
-import { useNavigation } from "@react-navigation/native";
-
-// Import Styles!
-import { stylesSign } from "../styles/StylesSign";
-
-import { StylesOnboarding } from "../styles/StylesOnboarding";
-
-// Import Icon!
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { StylesOnboarding } from "../styles/StylesOnboarding"; // ajuste o caminho
 
 // Import Component TextInput
 import InputComp from "../components/InputComp";
 
-export default function SignIn() {
-  const navigation = useNavigation();
+// Import Icon!
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+
+export default function SignIn({ navigation }) {
   return (
     <ImageBackground
-      style={stylesSign.container}
-      source={require("../images/agro.jpg")}
-      blurRadius={15}
+      source={require("../assets/images/japones.jpg")}
+      style={styles.container}
+      resizeMode="cover"
     >
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#00000088",
-          padding: 40,
-          justifyContent: "center",
-        }}
-      >
+      <View style={styles.content}>
         <MaterialCommunityIcons
-          name="flower-tulip-outline"
+          name="barley"
           size={50}
           color="white"
           style={{ marginBottom: 20 }}
         />
-        <Text style={stylesSign.title}>Sign In</Text>
-        <Text style={stylesSign.text}>
-          Sign in now to acces your excercises and saved music
-        </Text>
+        <Text style={styles.title}>Estação Akira</Text>
+        <Text style={styles.subtitle}>O Site Perfeito para o Clima</Text>
 
-        <View style={{ marginTop: 80 }}>
+        {/* Formulário */}
+        <View style={{ width: "80%", marginTop: 40 }}>
           <InputComp textPlaceholder={"Email Address"} password={false} />
           <InputComp textPlaceholder={"Password"} password={true} />
 
-          <Pressable style={{ position: "absolute", right: 0, bottom: -20 }}>
+          <Pressable style={{ alignSelf: "flex-end", marginTop: 10 }}>
             <Text style={{ color: "grey" }}>Forgot password?</Text>
           </Pressable>
         </View>
 
+        {/* Botão de entrar */}
         <TouchableOpacity
-          style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
+          style={[StylesOnboarding.btn, { marginTop: 40 }]}
+          onPress={() => navigation.navigate("SignUp")} // corrija o nome da rota
         >
-          <Text style={StylesOnboarding.txt2}>LOGIN</Text>
+          <Text style={StylesOnboarding.btnText}>ENTRAR</Text>
         </TouchableOpacity>
-
-        <View style={StylesOnboarding.viewSignUp}>
-          <Text style={StylesOnboarding.txt2}>Don't have an account? </Text>
-          <Pressable onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign Up</Text>
-          </Pressable>
-        </View>
       </View>
-      <StatusBar hidden />
     </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#fff",
+    marginBottom: 5,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#ddd",
+    textAlign: "center",
+  },
+});
