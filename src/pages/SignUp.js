@@ -15,12 +15,15 @@ import { StylesOnboarding } from "../styles/StylesOnboarding";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
+import axios from axios;
+
 export default function SignUp() {
   const navigation = useNavigation();
 
-  const [name, setName] = useState("");
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const [nameValid, setNameValid] = useState(false);
@@ -28,7 +31,7 @@ export default function SignUp() {
   const [passwordError, setPasswordError] = useState("");
 
   const validateName = (text) => {
-    setName(text);
+    setNome(text);
     setNameValid(text.length >= 3);
   };
 
@@ -39,7 +42,7 @@ export default function SignUp() {
   };
 
   const validatePassword = (text) => {
-    setPassword(text);
+    setSenha(text);
 
     if (text.length < 6) {
       setPasswordError("A senha deve ter pelo menos 6 caracteres");
@@ -52,8 +55,8 @@ export default function SignUp() {
     }
   };
 
-  const handleSignUp = () => {
-    if (!name || !email || !password) {
+  const handleRegister = async () => {
+    if (!nome || !email || !senha) {
       Alert.alert("Erro", "Preencha todos os campos!");
       return;
     }
@@ -62,9 +65,26 @@ export default function SignUp() {
       return;
     }
 
-    Alert.alert("Sucesso", "Cadastro realizado!");
-    console.log({ name, email, password });
-    navigation.navigate("SignIn");
+    setLoading(true);
+
+    try {
+      const res = await axios.post("http://localhost:3001/auth/register", {
+        nome,
+        email,
+        senha,
+      });
+
+      if (res.data.message === "Usuario criado com sucesso!") {
+        navigation.navigate("SignIn");
+      }
+      setNome("");
+      setEmail("");
+      setSenha("");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -97,12 +117,12 @@ export default function SignUp() {
                 style={[stylesSign.input, { flex: 1 }]}
                 placeholderTextColor="#bebebe"
                 placeholder="Seu nome"
-                value={name}
+                value={nome}
                 onChangeText={validateName}
               />
-              {name.length > 0 && (
+              {nome.length > 0 && (
                 <MaterialCommunityIcons
-                  name={nameValid ? "check-circle" : "close-circle"}
+                  nome={nameValid ? "check-circle" : "close-circle"}
                   size={20}
                   color={nameValid ? "green" : "red"}
                 />
@@ -119,7 +139,7 @@ export default function SignUp() {
               />
               {email.length > 0 && (
                 <MaterialCommunityIcons
-                  name={emailValid ? "check-circle" : "close-circle"}
+                  nome={emailValid ? "check-circle" : "close-circle"}
                   size={20}
                   color={emailValid ? "green" : "red"}
                 />
@@ -133,12 +153,12 @@ export default function SignUp() {
                 placeholderTextColor="#bebebe"
                 placeholder="Seu senha"
                 secureTextEntry={!showPassword}
-                value={password}
+                value={senha}
                 onChangeText={validatePassword}
               />
               <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <MaterialCommunityIcons
-                  name={showPassword ? "eye-off" : "eye"}
+                  nome={showPassword ? "eye-off" : "eye"}
                   size={20}
                   color="#fff"
                 />
@@ -148,7 +168,7 @@ export default function SignUp() {
               <Text style={{ color: "red", marginTop: 5 }}>
                 {passwordError}
               </Text>
-            ) : password.length > 0 ? (
+            ) : senha.length > 0 ? (
               <Text style={{ color: "green", marginTop: 5 }}>Senha forte</Text>
             ) : null}
           </View>
@@ -165,7 +185,7 @@ export default function SignUp() {
                     : "green",
               },
             ]}
-            onPress={handleSignUp}
+            onPress={handleRegister}
             disabled={!nameValid || !emailValid || passwordError.length > 0}
           >
             <Text style={StylesOnboarding.txt2}>Cadastrar</Text>
