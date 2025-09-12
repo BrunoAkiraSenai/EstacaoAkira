@@ -9,7 +9,6 @@ import SignIn from "./src/pages/SignIn";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  0;
   return (
     <NavigationContainer>
       <Stack.Navigator
