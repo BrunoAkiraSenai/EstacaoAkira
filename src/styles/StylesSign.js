@@ -22,6 +22,10 @@ export const stylesSign = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#bebebe",
     paddingLeft: 7,
+<<<<<<< HEAD
     color: "#bebebe",
+=======
+    color: "white",
+>>>>>>> desenvolvimento
   },
 });
