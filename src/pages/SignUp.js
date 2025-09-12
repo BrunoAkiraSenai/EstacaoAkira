@@ -11,14 +11,11 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { stylesSign } from "../styles/StylesSign";
-
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-import axios from axios;
-
-import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 export default function SignUp() {
   const navigation = useNavigation();
@@ -77,12 +74,13 @@ export default function SignUp() {
         senha,
       });
 
-      if (res.data.message === "Usuario criado com sucesso!") {
+      if (res.data.message == "Usuário criado com sucesso!") {
+        setNome("");
+        setEmail("");
+        setSenha("");
         navigation.navigate("SignIn");
       }
-      setNome("");
-      setEmail("");
-      setSenha("");
+      ("");
     } catch (error) {
       console.error(error);
     } finally {
@@ -100,30 +98,6 @@ export default function SignUp() {
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
-<<<<<<< HEAD
-        <MaterialCommunityIcons
-          name="weather-cloudy"
-          size={50}
-          color="white"
-          style={{ marginBottom: 20 }}
-        />
-        <Text style={stylesSign.title}>Sign Up</Text>
-        <Text style={stylesSign.text}>Cadastre-se na Estação Akira!</Text>
-
-        <View style={{ marginTop: 80 }}>
-          <TextInput
-            style={stylesSign.input}
-            placeholderTextColor={"#bebebe"}
-            placeholder="Name"
-          />
-          <InputComp textPlaceholder={"digite seu email"} password={false} />
-          <InputComp textPlaceholder={"Password"} password={true} />
-          <InputComp textPlaceholder={"Nome do usuário"} password={false} />
-        </View>
-
-        <TouchableOpacity
-          style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
-=======
         <View
           style={{
             width: "100%",
@@ -131,17 +105,9 @@ export default function SignUp() {
             padding: 40,
             justifyContent: "center",
           }}
->>>>>>> desenvolvimento
         >
           <MaterialCommunityIcons name="barley" size={50} color="white" />
 
-<<<<<<< HEAD
-        <View style={StylesOnboarding.viewSignUp}>
-          <Text style={StylesOnboarding.txt2}>Já tem conta?</Text>
-          <Pressable onPress={() => navigation.navigate("SignIn")}>
-            <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
-          </Pressable>
-=======
           <Text style={stylesSign.title}>Cadastrar</Text>
           <Text style={stylesSign.text}>Faça seu cadastro</Text>
 
@@ -216,7 +182,7 @@ export default function SignUp() {
                 width: "100%",
                 backgroundColor:
                   !nameValid || !emailValid || passwordError.length > 0
-                    ? "grey"
+                    ? "#861d1d"
                     : "green",
               },
             ]}
@@ -229,13 +195,9 @@ export default function SignUp() {
           <View style={[StylesOnboarding.viewSignUp, { marginTop: 20 }]}>
             <Text style={StylesOnboarding.txt2}>Já tem cadastro?</Text>
             <Pressable onPress={() => navigation.navigate("SignIn")}>
-              <Text style={{ fontWeight: "bold", color: "#fff" }}>
-                {" "}
-                Sign In
-              </Text>
+              <Text style={{ fontWeight: "bold", color: "#fff" }}> Entrar</Text>
             </Pressable>
           </View>
->>>>>>> desenvolvimento
         </View>
       </ScrollView>
       <StatusBar hidden />

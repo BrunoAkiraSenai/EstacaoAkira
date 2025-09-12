@@ -10,26 +10,14 @@ import {
 import { StylesOnboarding } from "../styles/StylesOnboarding"; // ajuste o caminho
 import { stylesSign } from "../styles/StylesSign";
 
-<<<<<<< HEAD
-// Import Component TextInput
-import InputComp from "../components/InputComp";
-=======
 import { useNavigation } from "@react-navigation/native";
 
 import { useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
->>>>>>> desenvolvimento
 
-// Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-<<<<<<< HEAD
-export default function SignIn({ navigation }) {
-  return (
-    <ImageBackground
-      source={require("../assets/images/trator.jpg")}
-=======
 export default function SignIn() {
   const navigation = useNavigation();
 
@@ -67,8 +55,7 @@ export default function SignIn() {
 
   return (
     <ImageBackground
-      source={require("../images/agro.jpg")}
->>>>>>> desenvolvimento
+      source={require("../assets/images/agro.jpg")}
       style={stylesSign.container}
       resizeMode="cover"
       blurRadius={15}
@@ -89,14 +76,9 @@ export default function SignIn() {
           style={{ marginBottom: 20 }}
         />
         <Text style={stylesSign.title}>Estação Akira</Text>
-        <Text style={stylesSign.text}>O Site Perfeito para o Clima</Text>
+        <Text style={stylesSign.text}>Entrar</Text>
 
-        {/* Formulário */}
         <View style={{ marginTop: 40 }}>
-<<<<<<< HEAD
-          <InputComp textPlaceholder={"Email Address"} password={false} />
-          <InputComp textPlaceholder={"Password"} password={true} />
-=======
           <TextInput
             style={stylesSign.input}
             placeholder="Email"
@@ -114,22 +96,11 @@ export default function SignIn() {
             onChangeText={setSenha}
             secureTextEntry
           />
->>>>>>> desenvolvimento
-
-          <Pressable style={{ position: "absolute", right: 0, bottom: -20 }}>
-            <Text style={{ color: "grey" }}>Forgot password?</Text>
-          </Pressable>
         </View>
-
-        {/* Botão de entrar */}
         <TouchableOpacity
           style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
-<<<<<<< HEAD
-          onPress={() => navigation.navigate("SignUp")} // corrija o nome da rota
-=======
           onPress={handleLogin}
-          disabled={loading} // corrija o nome da rota
->>>>>>> desenvolvimento
+          disabled={loading}
         >
           <Text style={StylesOnboarding.txt2}>ENTRAR</Text>
         </TouchableOpacity>

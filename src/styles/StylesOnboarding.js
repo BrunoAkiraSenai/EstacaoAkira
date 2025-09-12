@@ -33,7 +33,7 @@ export const StylesOnboarding = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     shadowOffset: { width: 0, height: 2 },
-    elevation: 5, // sombra Android
+    elevation: 5,
   },
 
   btnText: {
@@ -44,5 +44,14 @@ export const StylesOnboarding = StyleSheet.create({
 
   txt2: {
     color: "#fff",
+  },
+
+  txt: {
+    color: "#fff",
+  },
+  title: {
+    color: "#fff",
+    fontSize: 40,
+    fontWeight: "bold",
   },
 });
