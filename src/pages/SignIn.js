@@ -18,7 +18,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 export default function SignIn({ navigation }) {
   return (
     <ImageBackground
-      source={require("../assets/images/japones.jpg")}
+      source={require("../images/trator.jpg")}
       style={styles.container}
       resizeMode="cover"
     >

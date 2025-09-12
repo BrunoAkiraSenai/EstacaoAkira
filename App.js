@@ -1,7 +1,9 @@
-import { NavigationContainer } from "@react-navigation/native";
-
 import { NavigationContainer } from "@react-navigation/native"; // corrigido aqui
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import SignIn from "./src/pages/SignIn";
+import SignUp from "./src/pages/SignUp";
+import Onboarding from "./src/pages/Onboarding";
 
 import { useState } from "react";
 
