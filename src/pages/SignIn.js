@@ -64,7 +64,6 @@ export default function SignIn() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: "#00000088",
           padding: 40,
           justifyContent: "center",
         }}
