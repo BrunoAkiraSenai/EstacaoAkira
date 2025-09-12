@@ -25,7 +25,7 @@ export default function SignUp() {
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../images/wallpaper.jpg")}
+      source={require("../images/trator.jpg")}
       blurRadius={15}
     >
       <View
@@ -44,9 +44,7 @@ export default function SignUp() {
           style={{ marginBottom: 20 }}
         />
         <Text style={stylesSign.title}>Sign Up</Text>
-        <Text style={stylesSign.text}>
-          Cadastre-se na Estação Akira!
-        </Text>
+        <Text style={stylesSign.text}>Cadastre-se na Estação Akira!</Text>
 
         <View style={{ marginTop: 80 }}>
           <TextInput
@@ -57,7 +55,6 @@ export default function SignUp() {
           <InputComp textPlaceholder={"digite seu email"} password={false} />
           <InputComp textPlaceholder={"Password"} password={true} />
           <InputComp textPlaceholder={"Nome do usuário"} password={false} />
-
         </View>
 
         <TouchableOpacity
@@ -68,7 +65,7 @@ export default function SignUp() {
 
         <View style={StylesOnboarding.viewSignUp}>
           <Text style={StylesOnboarding.txt2}>Já tem conta?</Text>
-          <Pressable onPress={() => navigation.navigate("SignUp")}>
+          <Pressable onPress={() => navigation.navigate("SignIn")}>
             <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
           </Pressable>
         </View>
