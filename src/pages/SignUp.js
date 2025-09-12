@@ -5,16 +5,16 @@ import {
   TouchableOpacity,
   Pressable,
   TextInput,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 // Import Styles!
 import { stylesSign } from "../styles/StylesSign";
 
-import { useNavigation } from "@react-navigation/native";
-
 import { StylesOnboarding } from "../styles/StylesOnboarding";
+
+import { useNavigation } from "@react-navigation/native";
 
 // Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -51,21 +51,21 @@ export default function SignUp() {
         <View style={{ marginTop: 80 }}>
           <TextInput
             style={styles.input}
-            placeholder='Nome'
-          // value={nome}
-          // onChangeText={setNome}
+            placeholder="Nome"
+            // value={nome}
+            // onChangeText={setNome}
           />
 
           <TextInput
             style={styles.input}
-            placeholder='Email'
-          // value={email}
-          // onChangeText={setEmail}
+            placeholder="Email"
+            // value={email}
+            // onChangeText={setEmail}
           />
 
           <TextInput
             style={styles.input}
-            placeholder='Senha'
+            placeholder="Senha"
             // value={senha}
             // onChangeText={setSenha}
             secureTextEntry
@@ -74,14 +74,13 @@ export default function SignUp() {
 
         <TouchableOpacity
           style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
-          onPress={() => navigation.navigate("SignIn")}
         >
           <Text style={StylesOnboarding.txt2}>Sign Up</Text>
         </TouchableOpacity>
 
         <View style={StylesOnboarding.viewSignUp}>
           <Text style={StylesOnboarding.txt2}>Already have an account?</Text>
-          <Pressable onPress={() => navigation.navigate("SignIn")}>
+          <Pressable onPress={() => navigation.navigate("SignUp")}>
             <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign In</Text>
           </Pressable>
         </View>
@@ -99,7 +98,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
-
-})
+});
