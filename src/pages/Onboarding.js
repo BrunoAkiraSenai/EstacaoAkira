@@ -45,7 +45,7 @@ export default function Onboarding() {
           <Text
             style={{ fontWeight: "bold", color: "#fff", fontStyle: "italic" }}
           >
-            Sign Up
+            Cadastrar
           </Text>
         </Pressable>
       </View>

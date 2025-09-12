@@ -38,36 +38,28 @@ export default function SignIn() {
           justifyContent: "center",
         }}
       >
-        <MaterialCommunityIcons
-          name="flower-tulip-outline"
-          size={50}
-          color="white"
-          style={{ marginBottom: 20 }}
-        />
-        <Text style={stylesSign.title}>Sign In</Text>
+        <MaterialCommunityIcons name="barley" size={50} color="white" />
+
+        <Text style={stylesSign.title}>Entrar</Text>
         <Text style={stylesSign.text}>
-          Sign in now to acces your excercises and saved music
+          Entre aqui para garantir acesso ao aplicativo.
         </Text>
 
         <View style={{ marginTop: 80 }}>
-          <InputComp textPlaceholder={"Email Address"} password={false} />
-          <InputComp textPlaceholder={"Password"} password={true} />
-
-          <Pressable style={{ position: "absolute", right: 0, bottom: -20 }}>
-            <Text style={{ color: "grey" }}>Forgot password?</Text>
-          </Pressable>
+          <InputComp textPlaceholder={"E-mail"} password={false} />
+          <InputComp textPlaceholder={"Senha"} password={true} />
         </View>
 
         <TouchableOpacity
           style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
         >
-          <Text style={StylesOnboarding.txt2}>LOGIN</Text>
+          <Text style={StylesOnboarding.txt2}>Entrar</Text>
         </TouchableOpacity>
 
         <View style={StylesOnboarding.viewSignUp}>
-          <Text style={StylesOnboarding.txt2}>Don't have an account? </Text>
+          <Text style={StylesOnboarding.txt2}>Não possui conta? </Text>
           <Pressable onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{ fontWeight: "bold", color: "#fff" }}>Sign Up</Text>
+            <Text style={{ fontWeight: "bold", color: "#fff" }}>Cadastro</Text>
           </Pressable>
         </View>
       </View>
