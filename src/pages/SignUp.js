@@ -25,7 +25,7 @@ export default function SignUp() {
   return (
     <ImageBackground
       style={stylesSign.container}
-      source={require("../images/trator.jpg")}
+      source={require("../assets/images/trator.jpg")}
       blurRadius={15}
     >
       <View

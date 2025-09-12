@@ -22,7 +22,7 @@ export default function Onboarding() {
   return (
     <ImageBackground
       style={StylesOnboarding.container}
-      source={require("../images/27calor.jpg")}
+      source={require("../assets/images/27calor.jpg")}
       blurRadius={5}
     >
       <MaterialCommunityIcons
@@ -33,8 +33,8 @@ export default function Onboarding() {
 
       <Text style={StylesOnboarding.title}>WELCOME</Text>
 
-      <Text style={StylesOnboarding.txt}>Do meditation. Stay focused.</Text>
-      <Text style={StylesOnboarding.txt}>Live a healthy life.</Text>
+      <Text style={StylesOnboarding.txt2}>Do meditation. Stay focused.</Text>
+      <Text style={StylesOnboarding.txt2}>Live a healthy life.</Text>
 
       <TouchableOpacity
         style={StylesOnboarding.btn}
