@@ -32,7 +32,8 @@ export default function SignUp() {
 
   const validateName = (text) => {
     setNome(text);
-    setNameValid(text.length >= 3);
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/;
+    setNameValid(regex.test(text));
   };
 
   const validateEmail = (text) => {
@@ -137,6 +138,7 @@ export default function SignUp() {
                 placeholder="Seu Email"
                 value={email}
                 onChangeText={validateEmail}
+                autoCapitalize="none"
               />
               {email.length > 0 && (
                 <MaterialCommunityIcons

@@ -7,7 +7,7 @@ import {
   TextInput,
 } from "react-native";
 
-import { StylesOnboarding } from "../styles/StylesOnboarding"; // ajuste o caminho
+import { StylesOnboarding } from "../styles/StylesOnboarding";
 import { stylesSign } from "../styles/StylesSign";
 
 import { useNavigation } from "@react-navigation/native";
@@ -92,23 +92,15 @@ export default function SignIn() {
         <Text style={stylesSign.text}>Entrar</Text>
 
         <View style={{ marginTop: 40 }}>
-          <Text style={{ color: "#fff", marginTop: 15 }}>Email *</Text>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <TextInput
-              style={[stylesSign.input, { flex: 1 }]}
-              placeholderTextColor="#bebebe"
-              placeholder="Seu Email"
-              value={email}
-              onChangeText={validateEmail}
-            />
-            {email.length > 0 && (
-              <MaterialCommunityIcons
-                name={emailValid ? "check-circle" : "close-circle"}
-                size={20}
-                color={emailValid ? "green" : "red"}
-              />
-            )}
-          </View>
+          <TextInput
+            style={stylesSign.input}
+            placeholder="Email"
+            keyboardType="email-address"
+            placeholderTextColor={"#bebebe"}
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+          />
           <TextInput
             style={stylesSign.input}
             placeholder="Senha"
