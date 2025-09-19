@@ -47,6 +47,18 @@ export default function ClimaScreen() {
           />
         </View>
 
+        {/* Clima Atual */}
+        <View style={styles.weatherBox}>
+          <Text style={styles.title}>NOVA ODESSA</Text>
+          <Text style={styles.title}>30°</Text>
+          <MaterialCommunityIcons
+            name="weather-partly-cloudy"
+            size={150}
+            color="white"
+            style={styles.weatherIcon}
+          />
+        </View>
+
         {/* Subtítulo */}
         <Text style={styles.subtitle}>cidades próximas:</Text>
 
@@ -74,6 +86,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  weatherBox: {
+    alignItems: "center", // centraliza horizontal
+    marginTop: 20, // dá espaço do topo
+  },
+
+  weatherIcon: {
+    marginTop: 10, // espaço entre texto e ícone
+  },
   overlay: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.5)",
@@ -88,9 +108,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 18,
+    fontSize: 28,
     fontWeight: "bold",
     textTransform: "uppercase",
+    textAlign: "center",
   },
   searchBox: {
     flexDirection: "row",
@@ -109,8 +130,8 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "#ddd",
     fontSize: 14,
-    marginBottom: 20,
-    textAlign: "center", // 👈 centraliza o subtítulo
+    marginTop: 40, // antes era 250
+    textAlign: "center",
   },
   cityList: {
     flexGrow: 1,
@@ -126,6 +147,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.15)",
     borderRadius: 12,
     padding: 15,
+    marginBottom: 30,
+    marginTop: 0,
   },
   temp: {
     fontSize: 22,
