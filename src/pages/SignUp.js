@@ -124,7 +124,7 @@ export default function SignUp() {
               />
               {nome.length > 0 && (
                 <MaterialCommunityIcons
-                  nome={nameValid ? "check-circle" : "close-circle"}
+                  name={nameValid ? "check-circle" : "close-circle"}
                   size={20}
                   color={nameValid ? "green" : "red"}
                 />
@@ -142,7 +142,7 @@ export default function SignUp() {
               />
               {email.length > 0 && (
                 <MaterialCommunityIcons
-                  nome={emailValid ? "check-circle" : "close-circle"}
+                  name={emailValid ? "check-circle" : "close-circle"}
                   size={20}
                   color={emailValid ? "green" : "red"}
                 />
