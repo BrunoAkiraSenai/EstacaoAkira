@@ -47,7 +47,7 @@ export default function SignIn() {
 
       await AsyncStorage.setItem("@token", token);
 
-      navigation.navigate("Onboarding");
+      navigation.navigate("DashLocal");
       setEmail("");
       setSenha("");
     } catch (error) {
@@ -92,15 +92,23 @@ export default function SignIn() {
         <Text style={stylesSign.text}>Entrar</Text>
 
         <View style={{ marginTop: 40 }}>
-          <TextInput
-            style={stylesSign.input}
-            placeholder="Email"
-            keyboardType="email-address"
-            placeholderTextColor={"#bebebe"}
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-          />
+          <Text style={{ color: "#fff", marginTop: 15 }}>Email *</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TextInput
+              style={[stylesSign.input, { flex: 1 }]}
+              placeholderTextColor="#bebebe"
+              placeholder="Seu Email"
+              value={email}
+              onChangeText={validateEmail}
+            />
+            {email.length > 0 && (
+              <MaterialCommunityIcons
+                name={emailValid ? "check-circle" : "close-circle"}
+                size={20}
+                color={emailValid ? "green" : "red"}
+              />
+            )}
+          </View>
           <TextInput
             style={stylesSign.input}
             placeholder="Senha"
