@@ -109,16 +109,14 @@ export default function SignIn() {
               />
             )}
           </View>
-          <Text style={{ color: "#fff", marginTop: 15 }}>Senha *</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <TextInput
-                style={[stylesSign.input, { flex: 1 }]}
-                placeholderTextColor="#bebebe"
-                placeholder="Seu senha"
-                secureTextEntry={!showPassword}
-                value={password}
-                onChangeText={validatePassword}
-              />
+          <TextInput
+            style={stylesSign.input}
+            placeholder="Senha"
+            placeholderTextColor={"#bebebe"}
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry
+          />
 
           {messageError ? (
             <Text style={{ color: "red", marginTop: 10 }}>{messageError}</Text>
