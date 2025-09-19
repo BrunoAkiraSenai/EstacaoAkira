@@ -24,6 +24,8 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [messageError, setMessageError] = useState("");
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -39,6 +41,8 @@ export default function SignIn() {
         senha,
       });
 
+      console.log("KAKAKAKAKA", res.data.message);
+
       const token = res.data.token;
 
       await AsyncStorage.setItem("@token", token);
@@ -47,7 +51,17 @@ export default function SignIn() {
       setEmail("");
       setSenha("");
     } catch (error) {
-      console.error(error);
+      if (error.response) {
+        const msg = error.response.data.error;
+        setMessageError(msg);
+
+        setTimeout(() => setMessageError(""), 3000);
+
+        console.log("Erro de login:", msg);
+      } else {
+        setMessageError("Erro de conexão com o servidor!");
+        setTimeout(() => setMessageError(""), 3000);
+      }
     } finally {
       setLoading(false);
     }
@@ -95,6 +109,10 @@ export default function SignIn() {
             onChangeText={setSenha}
             secureTextEntry
           />
+
+          {messageError ? (
+            <Text style={{ color: "red", marginTop: 10 }}>{messageError}</Text>
+          ) : null}
         </View>
         <TouchableOpacity
           style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
