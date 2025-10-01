@@ -12,7 +12,6 @@ import { StatusBar } from "expo-status-bar";
 
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 
-// Import Icon!
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function Onboarding() {
