@@ -8,7 +8,7 @@ import SignIn from "./src/pages/SignIn";
 import DashLocal from "./src/pages/DashLocal";
 import DashboardLSPA from "./src/pages/DashboardLSPA";
 import DashPrincipal from "./src/pages/DashPrincipal";
-import Calendario from "./src/pages/calendario";
+import Calendario from "./src/pages/Calendario";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Calendario"
+        initialRouteName="Onboarding"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />

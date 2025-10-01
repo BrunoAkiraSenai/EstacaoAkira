@@ -7,12 +7,13 @@ import {
   TextInput,
 } from "react-native";
 
+import * as Font from "expo-font";
 import { StylesOnboarding } from "../styles/StylesOnboarding";
 import { stylesSign } from "../styles/StylesSign";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -21,11 +22,21 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 export default function SignIn() {
   const navigation = useNavigation();
 
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [messageError, setMessageError] = useState("");
+
+  useEffect(() => {
+    Font.loadAsync({
+      Playfair: require("../assets/fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf"),
+      Lato: require("../assets/fonts/Lato/Lato-Italic.ttf"),
+      Poppins: require("../assets/fonts/Poppins/Poppins-Regular.ttf"),
+      PoppinsBold: require("../assets/fonts/Poppins/Poppins-Bold.ttf"),
+    }).then(() => setFontsLoaded(true));
+  }, []);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -67,6 +78,8 @@ export default function SignIn() {
     }
   };
 
+  if (!fontsLoaded) return null;
+
   return (
     <ImageBackground
       source={require("../assets/images/agro.jpg")}
@@ -88,8 +101,12 @@ export default function SignIn() {
           color="white"
           style={{ marginBottom: 20 }}
         />
-        <Text style={stylesSign.title}>Estação Akira</Text>
-        <Text style={stylesSign.text}>Entrar</Text>
+        <Text style={[stylesSign.title, { fontFamily: "Playfair" }]}>
+          Estação Akira
+        </Text>
+        <Text style={{ fontFamily: "Lato", color: "#bebebe", fontSize: 18 }}>
+          Faça seu login
+        </Text>
 
         <View style={{ marginTop: 40 }}>
           <TextInput
@@ -115,16 +132,29 @@ export default function SignIn() {
           ) : null}
         </View>
         <TouchableOpacity
-          style={[StylesOnboarding.btn, { marginTop: 80, width: "100%" }]}
+          style={{
+            backgroundColor: "#2E7D32",
+            padding: 15,
+            borderRadius: 10,
+            alignItems: "center",
+            marginTop: 40,
+            marginBottom: 40,
+          }}
           onPress={handleLogin}
           disabled={loading}
         >
-          <Text style={StylesOnboarding.txt2}>ENTRAR</Text>
+          <Text style={[StylesOnboarding.txt2, { fontFamily: "Poppins" }]}>
+            Entrar
+          </Text>
         </TouchableOpacity>
         <View style={StylesOnboarding.viewSignUp}>
-          <Text style={StylesOnboarding.txt2}>Ainda não tem conta</Text>
+          <Text style={{ fontFamily: "Lato", fontSize: 15, color: "#fff" }}>
+            Ainda não tem conta
+          </Text>
           <Pressable onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{ color: "grey" }}>Cadastre-se</Text>
+            <Text style={{ color: "#bebebe", fontFamily: "PoppinsBold" }}>
+              Cadastre-se
+            </Text>
           </Pressable>
         </View>
       </View>

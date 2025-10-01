@@ -12,7 +12,6 @@ export const StylesOnboarding = StyleSheet.create({
   title: {
     color: "#000",
     fontSize: 40,
-    fontWeight: "bold",
   },
 
   viewSignUp: {
@@ -22,12 +21,13 @@ export const StylesOnboarding = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: "grey",
+    backgroundColor: "#2E7D32",
     width: "80%",
     padding: 12,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 70,
+    marginBottom: 40,
     borderRadius: 8,
     shadowColor: "#000",
     shadowOpacity: 0.25,
@@ -48,6 +48,7 @@ export const StylesOnboarding = StyleSheet.create({
 
   txt: {
     color: "#fff",
+    fontSize: 18,
   },
   title: {
     color: "#fff",

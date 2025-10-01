@@ -8,7 +8,7 @@ export const stylesSign = StyleSheet.create({
   },
 
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: "bold",
     marginBottom: 5,
     color: "#fff",
@@ -19,9 +19,12 @@ export const stylesSign = StyleSheet.create({
   },
 
   input: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#bebebe",
-    paddingLeft: 7,
-    color: "white",
+    backgroundColor: "#0d2f1f",
+    borderRadius: 10,
+    padding: 15,
+    color: "#fff",
+    marginBottom: 15,
+    borderWidth: 1,
+    borderColor: "#1f5130",
   },
 });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
   Text,
@@ -9,6 +9,7 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
+import * as Font from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { stylesSign } from "../styles/StylesSign";
 import { StylesOnboarding } from "../styles/StylesOnboarding";
@@ -20,6 +21,7 @@ import axios from "axios";
 export default function SignUp() {
   const navigation = useNavigation();
 
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -29,6 +31,15 @@ export default function SignUp() {
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+
+  useEffect(() => {
+    Font.loadAsync({
+      Playfair: require("../assets/fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf"),
+      Lato: require("../assets/fonts/Lato/Lato-Italic.ttf"),
+      Poppins: require("../assets/fonts/Poppins/Poppins-Regular.ttf"),
+      PoppinsBold: require("../assets/fonts/Poppins/Poppins-Bold.ttf"),
+    }).then(() => setFontsLoaded(true));
+  }, []);
 
   const validateName = (text) => {
     setNome(text);
@@ -88,6 +99,7 @@ export default function SignUp() {
       setLoading(false);
     }
   };
+  if (!fontsLoaded) return null;
 
   return (
     <ImageBackground
@@ -109,12 +121,17 @@ export default function SignUp() {
         >
           <MaterialCommunityIcons name="barley" size={50} color="white" />
 
-          <Text style={stylesSign.title}>Cadastrar</Text>
-          <Text style={stylesSign.text}>Faça seu cadastro</Text>
+          <Text style={[stylesSign.title, { fontFamily: "Playfair" }]}>
+            Cadastrar
+          </Text>
+          <Text style={{ fontFamily: "Lato", color: "#bebebe", fontSize: 18 }}>
+            Faça seu cadastro
+          </Text>
 
           <View style={{ marginTop: 40 }}>
-            <Text style={{ color: "#fff" }}>Nome *</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", width: 300 }}
+            >
               <TextInput
                 style={[stylesSign.input, { flex: 1 }]}
                 placeholderTextColor="#bebebe"
@@ -126,15 +143,16 @@ export default function SignUp() {
                 <MaterialCommunityIcons
                   name={nameValid ? "check-circle" : "close-circle"}
                   size={20}
-                  color={nameValid ? "green" : "red"}
+                  color={nameValid ? "#32CD32" : "red"}
                 />
               )}
             </View>
-            <Text style={{ color: "#fff", marginTop: 15 }}>Email *</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", width: 300 }}
+            >
               <TextInput
                 style={[stylesSign.input, { flex: 1 }]}
-                placeholderTextColor="#bebebe"
+                placeholderTextColor="#aaa"
                 placeholder="Seu Email"
                 value={email}
                 onChangeText={validateEmail}
@@ -144,13 +162,14 @@ export default function SignUp() {
                 <MaterialCommunityIcons
                   name={emailValid ? "check-circle" : "close-circle"}
                   size={20}
-                  color={emailValid ? "green" : "red"}
+                  color={emailValid ? "#32CD32" : "red"}
                 />
               )}
             </View>
 
-            <Text style={{ color: "#fff", marginTop: 15 }}>Senha *</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", width: 300 }}
+            >
               <TextInput
                 style={[stylesSign.input, { flex: 1 }]}
                 placeholderTextColor="#bebebe"
@@ -172,7 +191,9 @@ export default function SignUp() {
                 {passwordError}
               </Text>
             ) : senha.length > 0 ? (
-              <Text style={{ color: "green", marginTop: 5 }}>Senha forte</Text>
+              <Text style={{ color: "#32CD32", marginTop: 5 }}>
+                Senha forte
+              </Text>
             ) : null}
           </View>
 
@@ -191,13 +212,20 @@ export default function SignUp() {
             onPress={handleRegister}
             disabled={!nameValid || !emailValid || passwordError.length > 0}
           >
-            <Text style={StylesOnboarding.txt2}>Cadastrar</Text>
+            <Text style={[StylesOnboarding.txt2, { fontFamily: "Poppins" }]}>
+              Cadastrar
+            </Text>
           </TouchableOpacity>
 
           <View style={[StylesOnboarding.viewSignUp, { marginTop: 20 }]}>
-            <Text style={StylesOnboarding.txt2}>Já tem cadastro?</Text>
+            <Text style={{ fontFamily: "Lato", fontSize: 16, color: "#fff" }}>
+              Já tem cadastro?
+            </Text>
             <Pressable onPress={() => navigation.navigate("SignIn")}>
-              <Text style={{ fontWeight: "bold", color: "#fff" }}> Entrar</Text>
+              <Text style={{ color: "#bebebe", fontFamily: "PoppinsBold" }}>
+                {" "}
+                Entrar
+              </Text>
             </Pressable>
           </View>
         </View>
