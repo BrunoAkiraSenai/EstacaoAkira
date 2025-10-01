@@ -14,7 +14,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="DashboardLSPA"
+        initialRouteName="Onboarding"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
