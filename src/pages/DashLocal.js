@@ -26,7 +26,6 @@ export default function ClimaScreen() {
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        {/* Header */}
         <View style={styles.header}>
           <Ionicons name="arrow-back" size={24} color="white" />
 
@@ -37,7 +36,6 @@ export default function ClimaScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Campo de busca */}
         <View style={styles.searchBox}>
           <Ionicons name="search" size={18} color="white" />
           <TextInput
@@ -47,7 +45,6 @@ export default function ClimaScreen() {
           />
         </View>
 
-        {/* Clima Atual */}
         <View style={styles.weatherBox}>
           <Text style={styles.title}>NOVA ODESSA</Text>
           <Text style={styles.title}>30°</Text>
@@ -59,10 +56,8 @@ export default function ClimaScreen() {
           />
         </View>
 
-        {/* Subtítulo */}
         <Text style={styles.subtitle}>cidades próximas:</Text>
 
-        {/* Lista centralizada */}
         <ScrollView
           contentContainerStyle={styles.cityList}
           showsVerticalScrollIndicator={false}
@@ -87,12 +82,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   weatherBox: {
-    alignItems: "center", // centraliza horizontal
-    marginTop: 20, // dá espaço do topo
+    alignItems: "center",
+    marginTop: 20,
   },
 
   weatherIcon: {
-    marginTop: 10, // espaço entre texto e ícone
+    marginTop: 10,
   },
   overlay: {
     flex: 1,
@@ -103,7 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 40, // 👈 empurra mais pra baixo
+    marginTop: 40,
     marginBottom: 20,
   },
   title: {
@@ -130,13 +125,13 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "#ddd",
     fontSize: 14,
-    marginTop: 40, // antes era 250
+    marginTop: 40,
     textAlign: "center",
   },
   cityList: {
     flexGrow: 1,
-    justifyContent: "center", // 👈 centraliza vertical
-    alignItems: "center", // 👈 centraliza horizontal
+    justifyContent: "center",
+    alignItems: "center",
     gap: 15,
   },
   cityCard: {

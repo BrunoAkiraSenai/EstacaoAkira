@@ -1,4 +1,3 @@
-// src/pages/DashboardCalendario.js
 import React, { useEffect, useState } from "react";
 import { ScrollView, View, Text } from "react-native";
 import axios from "axios";
@@ -8,32 +7,30 @@ import {
   VictoryBar,
   VictoryLegend,
   VictoryGroup,
-  VictoryTheme,
-} from "victory-native"; // no web use 'victory'
+} from "victory-native";
+import { VictoryTheme } from "victory";
 
-export default function DashboardCalendario() {
+export default function DashboardLSPA() {
   const [dados, setDados] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDados = async () => {
       try {
-        // Exemplo: SIDRA IBGE – Produção agrícola por cultura
         const response = await axios.get(
           "https://servicodados.ibge.gov.br/api/v2/agricultura/culturas?formato=json"
         );
 
-        // Transformando os dados para gráfico
         const dadosFormatados = response.data.map((item) => ({
           cultura: item.cultura,
-          plantio: Math.floor(Math.random() * 6) + 1, // meses simulados
-          colheita: Math.floor(Math.random() * 6) + 7, // meses simulados
+          plantio: Math.floor(Math.random() * 6) + 1,
+          colheita: Math.floor(Math.random() * 6) + 7,
         }));
 
         setDados(dadosFormatados);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
-        // fallback mock
+
         setDados([
           { cultura: "Soja", plantio: 2, colheita: 6 },
           { cultura: "Milho", plantio: 3, colheita: 7 },

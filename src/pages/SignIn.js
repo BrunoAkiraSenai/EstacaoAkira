@@ -47,7 +47,7 @@ export default function SignIn() {
 
       await AsyncStorage.setItem("@token", token);
 
-      navigation.navigate("DashLocal");
+      navigation.navigate("DashboardLSPA");
       setEmail("");
       setSenha("");
     } catch (error) {
