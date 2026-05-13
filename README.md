@@ -12,7 +12,7 @@ O projeto utiliza React Native com Expo e possui múltiplas telas, dashboards e 
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - React Native
 - Expo
